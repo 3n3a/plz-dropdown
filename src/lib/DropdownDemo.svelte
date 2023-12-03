@@ -2,7 +2,11 @@
   import AutoComplete from 'simple-svelte-autocomplete'
 
   const loadSuggestions = async (query: string, limit: number) => {
-    const res = await fetch(`https://plz.enea.tech/api/plz/search?q=${query}`)
+    const headers = {
+      "apikey": "uEzad5RVG9e9967xypBS8sFzKRadEtCV",
+      "accept": "application/json"
+    }
+    const res = await fetch(`https://api.3n3a.ch/plz/search?q=${query}`, {headers: headers})
     const data = await res.json()
     return data
   }
